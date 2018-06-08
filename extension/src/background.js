@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function(){
   });
 
   document.getElementById("submit").addEventListener("click", function(){
-    console.log("submit clicked",selectedValue);
+    // console.log("submit clicked",selectedValue);
     switch(selectedValue){
       case "val-koto":
       dispKotobank();
@@ -120,7 +120,7 @@ function selectChanged(){
   $(function(){
     var index = document.getElementById("select-type").selectedIndex;
     var options = document.querySelectorAll("#select-type option");
-    console.log("select box", options[index].value);
+    // console.log("select box", options[index].value);
     selectedValue = options[index].value;
     displayField(selectedValue);
     textAreaHeight();
@@ -144,7 +144,7 @@ function getTitleDisabled(selectType){
 }
 
 function displayField(selectedValue){
-  console.log("displayField", selectedValue);
+  // console.log("displayField", selectedValue);
   $("#div-store").removeClass("store-passive");
   $("#div-delete").addClass("store-passive");
   $("#local-store").attr("disabled", false);
@@ -212,7 +212,7 @@ function getKotoInf(){
   chrome.tabs.query({active:true, windowId: chrome.windows.WINDOW_ID_CURRENT}, function(tab){
     chrome.tabs.sendMessage(tab[0].id, {command:"kotobank"},function(response){
 
-      console.log("return message",response);
+      // console.log("return message",response);
       var koto_title = ""
       try{
         for (var i=0;i<response.length;i++){
@@ -233,7 +233,7 @@ function getKotoInf(){
         }
 
         return_list = return_array;
-        console.log("return_array", return_array);
+        // console.log("return_array", return_array);
       }catch(e){
         errorMessage(e);
       }
@@ -268,7 +268,7 @@ function getKotoInf(){
           errorMessage(e);
         }
       });
-      console.log("error",chrome.runtime.lastError)
+      // console.log("error",chrome.runtime.lastError)
     });
   });
 }
@@ -278,7 +278,7 @@ function getBookInf(){
   clearMessage();
   chrome.tabs.query({active:true, windowId: chrome.windows.WINDOW_ID_CURRENT}, function(tabs){
     chrome.tabs.sendMessage(tabs[0].id, {command:"amazon"},function(response){
-      console.log("amazon sendRequest", response);
+      // console.log("amazon sendRequest", response);
       return_list = response;
 
       chrome.tabs.getSelected(null, tab=>{
@@ -308,7 +308,7 @@ function getBookInf(){
           errorMessage(e);
         }
       });
-      console.log("error",chrome.runtime.lastError)
+      // console.log("error",chrome.runtime.lastError)
 
     });
   });
@@ -449,7 +449,7 @@ function errorMessage(e, msg="読み取りエラー"){
   $("#alertbox").removeClass("alert-passive");
   $("#alertbox").addClass("alert-active");
   $("#alert-id").html(msg);
-  console.log(e);
+  // console.log(e);
 }
 
 function clearMessage(){
@@ -486,7 +486,7 @@ function storeKotobank(){
     "data": koto_data,
     "template_title": template_title
   };
-  console.log(store_data);
+  // console.log(store_data);
   localStorage.setItem(current_data, JSON.stringify(store_data));
 }
 
@@ -514,7 +514,7 @@ function storeAmazon(){
     "template_title": template_title
   };
 
-  console.log(store_data);
+  // console.log(store_data);
   localStorage.setItem(current_data, JSON.stringify(store_data));
 }
 
@@ -536,7 +536,7 @@ function storeWeb(){
     "template_title": template_title
   };
 
-  console.log(store_data);
+  // console.log(store_data);
   localStorage.setItem(current_data, JSON.stringify(store_data));
 }
 
@@ -565,7 +565,7 @@ function storeNews(){
     "template_title": template_title
   };
 
-  console.log(store_data);
+  // console.log(store_data);
   localStorage.setItem(current_data, JSON.stringify(store_data));
 }
 
@@ -587,7 +587,7 @@ function storeDic(){
     "template_title": template_title
   };
 
-  console.log(store_data);
+  // console.log(store_data);
   localStorage.setItem(current_data, JSON.stringify(store_data));
 }
 
@@ -601,9 +601,9 @@ function addMenu(){
     }
   }
   var key_array = Object.keys(stored_array);
-  console.log(key_array);
+  // console.log(key_array);
   key_array = key_array.map(function (x) { return parseInt(x,10); });
-  console.log(key_array);
+  // console.log(key_array);
   key_array.sort(
     function(a,b){
       if( a < b ) return -1;
@@ -612,7 +612,7 @@ function addMenu(){
     }
   );
 
-  console.log(key_array);
+  // console.log(key_array);
 
   for(var j=0;j<key_array.length;j++){
     key_name = key_array[j].toString();
@@ -625,14 +625,14 @@ function addMenu(){
       }).appendTo('#select-type');
     }
   }
-  console.log(stored_array);
+  // console.log(stored_array);
 }
 
 function dispFieldAdded(){
   var stored_elem = stored_array[selectedValue];
   var added_type = stored_elem["data_type"];
-  console.log("dispFieldAdded", stored_elem);
-  console.log("added_type", added_type);
+  // console.log("dispFieldAdded", stored_elem);
+  // console.log("added_type", added_type);
   $("#getTitle").attr("disabled", true);
 
   switch(added_type){
@@ -704,8 +704,8 @@ function dispFieldAdded(){
 function dispAdded(){
   var stored_elem = stored_array[selectedValue];
   var added_type = stored_elem["data_type"];
-  console.log("dispAdded", stored_elem);
-  console.log("added_type", added_type);
+  // console.log("dispAdded", stored_elem);
+  // console.log("added_type", added_type);
 
   switch (added_type) {
     case "kotobank":
