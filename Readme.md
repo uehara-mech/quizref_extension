@@ -16,8 +16,7 @@ abcフォーマットでのクイズの出典表記を補助してくれるchrom
   ```
 
 2. Chrome拡張機能の設定を開く
-
-  ![chrome1](https://github.com/uehara-mech/quizref_extension/blob/image/img/chrome.png?raw=true)
+  <img src="https://github.com/uehara-mech/quizref_extension/blob/image/img/chrome.png?raw=true" width="500px">
 
 3. **デベロッパーモード**にチェックを入れ，**パッケージ化されていない拡張機能を読み込む** ボタンを押し， `quizref_extension/extension` ディレクトリを選択する.
 
