@@ -1,14 +1,14 @@
 abcフォーマットでのクイズの出典表記を補助してくれるchrome拡張
 
-### 機能
----
+## 機能
+
 - Amazonからの書籍情報取得
 - コトバンクからの情報取得
 - 一般のWebページからの情報取得
 - 新聞記事・一般の事典/辞書の出典表記支援
 
-### インストール方法
----
+## インストール方法
+
 1. クローン
 
   ```
@@ -22,5 +22,4 @@ abcフォーマットでのクイズの出典表記を補助してくれるchrom
 
   ![chrome2](https://github.com/uehara-mech/quizref_extension/blob/image/img/chrome_2.png?raw=true)
 
-#### 使い方
----
+## 使い方
