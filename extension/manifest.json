@@ -1,0 +1,21 @@
+{
+  "name": "Quiz Reference",
+  "version":"0.0.2",
+  "manifest_version": 2,
+  "description": "beta version",
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "permissions":[
+    "tabs",
+    "clipboardWrite"
+  ],
+  "content_scripts":[
+    {
+      "all_frames": true,
+      "js":["./assets/jquery-3.1.0.min.js", "./src/content_scripts.js"],
+      "matches":["<all_urls>"],
+      "run_at": "document_end"
+    }
+  ]
+}

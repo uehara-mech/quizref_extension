@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="./assets/bootstrap.min.css" />
+  <link rel="stylesheet" href="./src/popup.css" type="text/css">
+
+</head>
+<body>
+
+  <div class="container-fluid size-container">
+    <div id="without-text">
+      <select class="form-control" id="select-type">
+        <option value="val-default">選択してください</option>
+        <option disabled>──────────</option>
+        <option value="val-amazon">書籍</option>
+        <option value="val-koto">コトバンク</option>
+        <option value="val-web">Webサイト</option>
+        <option value="val-news">新聞記事</option>
+        <option value="val-dic">事典・辞書</option>
+        <option disabled>──────────</option>
+      </select>
+      <form class="btn-margin form-inline">
+        <button type='button' id='getTitle' class='btn btn-primary btn-sm' disabled=true>情報取得</button>
+        <div id="alertbox" class="myVertical alert-passive">
+          <div id="alert-id" class="alert alert-danger myVertical" role="alert">読み込みエラー</div>
+        </div>
+      </form>
+
+      <div id="checkboxes"></div>
+      <div id="kotobank-id" class="toggle-passive">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-3 myPaddingLeft myVertical ">項目名</div>
+            <div class = "col-sm-1 myVertical">「</div>
+            <div class="col-sm-7 form-inline" style="padding: 3px;">
+              <input type="text" class="form-control input-sm" id="koto-article" placeholder="項目名">
+            </div>
+            <div class = "col-sm-1 myVertical">」</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3 myPaddingLeft myVertical">辞書名</div>
+            <div id="div-select-kotobank" class="col-sm-9 form-inline" style="padding: 3px;">
+              <select class="form-control" id="select-kotobank">
+                <option value="val-default">選択してください</option>
+
+              </select>
+            </div>
+            <div id="div-koto-author" class="col-sm-9 form-inline koto-author-passive" style="padding: 3px;">
+              <input type="text" class="form-control input-sm" id="koto-author" placeholder="出版社">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3 myPaddingLeft myVertical">出版社</div>
+            <div class="col-sm-9 form-inline" style="padding: 3px;">
+              <input type="text" class="form-control input-sm" id="koto-publisher" placeholder="出版社">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3 myPaddingLeft myVertical">URL</div>
+            <div class="col-sm-9 form-inline" style="padding: 3px;">
+              <input type="text" class="form-control input-sm" id="koto-url-id" placeholder="URL">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="amazon-id" class = "toggle-passive">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-3 myPaddingLeft myVertical">著者名</div>
+            <div class="col-sm-9 form-inline" style="padding: 3px;">
+              <input type="text" class="form-control input-sm" id="amazon-author" placeholder="著者名">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3 myPaddingLeft myVertical">書名</div>
+            <div class = "col-sm-1 myVertical">『</div>
+            <div class="col-sm-7 form-inline" style="padding: 3px;">
+              <input type="text" class="form-control input-sm" id="amazon-title" placeholder="書名">
+            </div>
+            <div class = "col-sm-1 myVertical">』</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3 myPaddingLeft myVertical">出版社名</div>
+            <div class="col-sm-9 form-inline" style="padding: 3px;">
+              <input type="text" class="form-control input-sm" id="amazon-publisher" placeholder="出版社名">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3 myPaddingLeft myVertical">出版年</div>
+            <div class="col-sm-8 form-inline" style="padding: 3px;">
+              <input type="text" class="form-control input-sm" id="amazon-publish-year" placeholder="出版年">
+            </div>
+            <div class = "col-sm-1 myVertical">年</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3 myPaddingLeft myVertical">ページ数</div>
+            <div class="col-sm-1 myVertical">p.</div>
+            <div class="col-sm-2 form-inline" style="padding: 3px;">
+              <input type="text" class="form-control input-sm" id="amazon-pages-start" placeholder="">
+            </div>
+            <div class="col-sm-1 myVertical">-</div>
+            <div class="col-sm-2 form-inline" style="padding: 3px;">
+              <input type="text" class="form-control input-sm" id="amazon-pages-last" placeholder="">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="web-id" class = "toggle-passive">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-3 myPaddingLeft myVertical">ページタイトル</div>
+            <div class="col-sm-9 form-inline" style="padding: 3px;">
+              <input type="text" class="form-control input-sm" id="web-title" placeholder="ページタイトル">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3 myPaddingLeft myVertical">URL</div>
+            <div class="col-sm-9 form-inline" style="padding: 3px;">
+              <input type="text" class="form-control input-sm" id="web-url" placeholder="URL">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3 myPaddingLeft myVertical">参照箇所</div>
+            <div class="col-sm-9 form-inline" style="padding: 3px;">
+              <input type="text" class="form-control input-sm" id="web-ref" placeholder="参照箇所">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="news-id" class = "toggle-passive">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-3 myPaddingLeft myVertical">記事タイトル</div>
+            <div class = "col-sm-1 myVertical">「</div>
+            <div class="col-sm-7 form-inline" style="padding: 3px;">
+              <input type="text" class="form-control input-sm" id="news-title" placeholder="記事タイトル">
+            </div>
+            <div class = "col-sm-1 myVertical">」</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3 myPaddingLeft myVertical">新聞名</div>
+            <div class="col-sm-9 form-inline" style="padding: 3px;">
+              <input type="text" class="form-control input-sm" id="news-paper" placeholder="新聞名">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3 myPaddingLeft myVertical">日付</div>
+            <div class="col-sm-9 form-inline" style="padding: 3px;">
+              <input type="text" class="form-control input-sm" id="news-date" placeholder="日付">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3 myPaddingLeft myVertical">朝刊or夕刊</div>
+            <div class="col-sm-9 form-inline" style="padding: 3px;">
+              <select class="form-control" id="select-news">
+                <option value="val-default">選択してください</option>
+                <option disabled>──────────</option>
+                <option value="val-morning">朝刊</option>
+                <option value="val-night">夕刊</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3 myPaddingLeft myVertical">ページ</div>
+            <div class="col-sm-9 form-inline" style="padding: 3px;">
+              <input type="text" class="form-control input-sm" id="news-page" placeholder="ページ">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="dic-id" class = "toggle-passive">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-3 myPaddingLeft myVertical">項目名</div>
+            <div class = "col-sm-1 myVertical">「</div>
+            <div class="col-sm-7 form-inline" style="padding: 3px;">
+              <input type="text" class="form-control input-sm" id="dic-title" placeholder="項目名">
+            </div>
+            <div class = "col-sm-1 myVertical">」</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3 myPaddingLeft myVertical">辞書・事典名</div>
+            <div class="col-sm-9 form-inline" style="padding: 3px;">
+              <input type="text" class="form-control input-sm" id="dic-name" placeholder="辞書・事典名">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3 myPaddingLeft myVertical">出版社名</div>
+            <div class="col-sm-9 form-inline" style="padding: 3px;">
+              <input type="text" class="form-control input-sm" id="dic-publisher" placeholder="出版社名">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid btn-bottom-margin">
+        <div class="row">
+          <div class="col-sm-1 myPadding myVertical">
+            <button type="button" id="submit" class="btn btn-primary btn-sm" disabled=true>表示</button>
+          </div>
+          <div class="col-sm-1 cl-copy-btn myVertical">
+            <button type="button" id="copy-btn" class="btn btn-primary btn-sm" disabled=true>コピー</button>
+          </div>
+          <div id="div-store" class="col-sm-7 myPadding-left myVertical">
+            <div class="input-group input-group-sm">
+              <span class="input-group-btn">
+                <button type="button" id="local-store" class="btn btn-primary" disabled=true>保存</button>
+              </span>
+              <input type="text" id="template-title" class="form-control" placeholder="テンプレートのタイトル">
+            </div>
+          </div>
+          <div id="div-delete" class="col-sm-7 myPadding-left myVertical store-passive">
+            <button type="button" id="local-delete" class="btn btn-primary btn-sm">削除</button>
+          </div>
+          <div id="store-alert" class="col-sm-3 text-danger alert-text myVertical alert-text-hidden">必須項目</div>
+          <div id="store-success" class="col-sm-3 text-success success-text myVertical success-text-hidden">保存しました</div>
+        </div>
+      </div>
+    </div>
+
+    <textarea id="text" class="form-control"></textarea>
+
+  </div>
+  <script src="./assets/jquery-3.1.0.min.js"></script>
+  <script src="./src/background.js"></script>
+  <script src="./assets/popper.min.js"></script>
+  <script src="./assets/bootstrap.min.js"></script>
+</body>
+</html>

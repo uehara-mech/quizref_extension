@@ -1,0 +1,112 @@
+body{
+  width:600px;
+  height: 495.5px;
+  background:#EFF0F1;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.size-container{
+  position: fixed;
+}
+
+textarea {
+  resize: none;
+  overflow: auto;
+}
+
+.btn-margin{
+  margin-top: 15px;
+  margin-bottom: 7.5px;
+}
+
+.btn-bottom-margin{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.toggle-passive{
+  display:none;
+}
+
+.toggle-active{
+  display:block;
+}
+
+.koto-author-passive{
+  display: none;
+}
+
+.alert-passive{
+  visibility: hidden;
+}
+
+.alert-active{
+  visibility: visible;
+}
+
+.myPaddingLeft{
+  padding-left: 0px;
+}
+
+.form-inline .form-control{
+  width: 100%;
+}
+
+.alert{
+  height: 31px;
+  margin:0 auto;
+}
+
+#alertbox{
+  margin-left: 25px;
+}
+
+.myVertical{
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+}
+
+.myPadding{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.cl-copy-btn{
+  padding-left: 3px;
+  padding-right: 0px;
+}
+
+.myPadding-left{
+  padding-left: 20px;
+  padding-right: 0px;
+}
+
+.alert-text-hidden{
+  display: none;
+}
+
+.success-text-hidden{
+  display: none;
+}
+
+.alert-text{
+  font-size: 90%;
+}
+
+.success-text{
+  font-size: 90%;
+}
+
+.valid{
+  border-color: #5cb85c;
+}
+
+.invalid{
+  border-color: #dc3545;
+}
+
+.store-passive{
+  display: none;
+}
