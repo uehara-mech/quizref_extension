@@ -23,3 +23,8 @@ abcフォーマットでのクイズの出典表記を補助してくれるchrom
   ![chrome2](https://github.com/uehara-mech/quizref_extension/blob/image/img/chrome_2.png?raw=true)
 
 ## 使い方
+
+### Amazonからの書籍情報取得
+1. Amazonで該当する書籍のページを開きます．
+1. 拡張機能を起動し，リストから「書籍」を選択します．
+1. 
